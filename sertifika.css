@@ -1,0 +1,76 @@
+/* Genel Sayfa Stili */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    
+    /* İş tecrübeleri sayfanla aynı "soft" arka planı kullanalım */
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    background-attachment: fixed;
+}
+
+/* Üst Kısım (Link ve Ana Başlık) */
+header {
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+}
+
+header h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Ana Sayfa Link Düğmesi */
+.nav-link {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #5b86e5;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px; /* Yumuşak kenarlar */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Ana içerik (Tüm sertifika kartlarını kapsar) */
+main {
+    max-width: 800px; /* Geniş ekranlarda çok yayılmasın */
+    margin: 0 auto;   /* Sayfanın ortasında dursun */
+    padding: 0 20px 40px 20px;
+}
+
+/* Her bir sertifika için "kart" stili */
+.certificate-card {
+    background-color: #ffffff; /* Kartlar beyaz olsun */
+    border-radius: 10px;      /* Kenarları "soft" olsun */
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+    text-align: center; /* İçindeki başlık ve resmi ortalar */
+}
+
+/* Sertifika Kartı Başlığı */
+.certificate-card h2 {
+    color: #3a7bd5; /* Ana başlık rengi */
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* Sertifika Resmi Stilleri */
+.certificate-card img {
+    max-width: 100%; /* Resim karttan dışarı taşmasın! (Çok önemli) */
+    height: auto;    /* Resmin en-boy oranı korunsun */
+    border-radius: 5px; /* Resim kenarları hafif yumuşak olsun */
+    margin-top: 15px;
+    border: 1px solid #eee; /* Resimlerin etrafına hafif bir çerçeve */
+}

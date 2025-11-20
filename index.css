@@ -1,0 +1,221 @@
+/* Genel Sayfa Stili */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    background-attachment: fixed;
+}
+
+/* 1. BÖLÜM: ÜST TANITIM (BAŞLIK VE FOTOĞRAF) */
+.hero-section {
+    text-align: center;
+    padding: 40px 20px 30px 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin: 10px 0 5px 0;
+}
+.hero-section h2 {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+/* 3. BÖLÜM: REFERANSLAR */
+.reference-item {
+    background-color: #f9f9f9;
+    border-left: 4px solid #66a6ff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+}
+.reference-item:last-child {
+    margin-bottom: 0;
+}
+.reference-item h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+.reference-item .ref-title {
+    margin: 0 0 8px 0;
+    font-style: italic;
+    color: #555;
+}
+.reference-item .ref-contact {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+.reference-item .ref-contact a {
+    color: #3a7bd5;
+    text-decoration: none;
+}
+.reference-item .ref-contact a:hover {
+    text-decoration: underline;
+}
+
+/* 4. BÖLÜM: JS EFEKTLERİ */
+
+/* Profil Resmi Dönme Efekti */
+.flip-container {
+    background-color: transparent;
+    width: 180px;  
+    height: 180px; 
+    perspective: 1000px; 
+    border-radius: 50%; 
+    margin-bottom: 20px;
+}
+.flipper-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flipper-card.is-flipped {
+    transform: rotateY(180deg);
+}
+.flipper-front, .flipper-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    border-radius: 50%; 
+}
+.flipper-front {
+    background-color: #bbb;
+    color: black;
+    border: 5px solid #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; 
+}
+#vesikalikfoto {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 0; 
+   border: 0;
+   box-shadow: none;
+   margin-bottom: 0;
+}
+.flipper-back {
+    background: linear-gradient(135deg, #66a6ff 0%, #89f7fe 100%);
+    color: white;
+    transform: rotateY(180deg);
+    border: 5px solid #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- İŞTE BU! İÇİ DOLAN YETENEK BUTONLARI (ROZETLERİ) --- */
+
+/* Rozetlerin durduğu ana konteyner */
+.skill-badges-container {
+    display: flex;
+    flex-wrap: wrap; /* Butonlar sığmayınca alt satıra atsın */
+    gap: 10px; /* Butonlar arası boşluk */
+}
+
+/* Yüzdeliği gösteren gizli metin */
+.skill-percent-text {
+    opacity: 0; /* Normalde % yazısı GİZLİ */
+    font-weight: 700;
+    padding-left: 5px;
+    transition: opacity 0.3s ease 0.2s; /* Hafif gecikmeli gelsin */
+}
+
+/* Butonun (Rozetin) ana stili */
+.badge-skill-fill {
+    /* Bootstrap .badge'inden stilleri miras al */
+    font-size: 0.9rem;
+    padding: 0.5em 0.8em;
+    border-radius: 8px; /* Daha modern bir köşe */
+    
+    /* Normal Hali (Dolmamış) */
+    background-color: #e9ecef; /* Dolmamış hali (gri) */
+    color: #333; /* Dolmamış hali (koyu yazı) */
+    
+    /* Animasyon için hazırlık */
+    position: relative; /* İçine ::before yerleştirmek için */
+    z-index: 1; /* Yazının üstte kalması için */
+    overflow: hidden; /* Taşan dolguyu gizle */
+    cursor: pointer;
+    transition: color 0.3s ease 0.1s; /* Yazı rengi de yumuşak değişsin */
+}
+
+/* Butonun içini dolduracak olan sahte ::before elementi */
+.badge-skill-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    
+    /* Genişliği (width) HTML'deki --skill-level değişkeninden okur */
+    width: var(--skill-level, 0%); 
+    
+    background-color: #3a7bd5; /* Dolgu rengi (mavi) */
+    
+    /* Animasyon */
+    transform: translateX(-100%); /* Başlangıçta solda gizli */
+    transition: transform 0.4s ease-out; /* Kayarak gelme efekti */
+    
+    z-index: -1; /* Yazının ARKASINDA durması için */
+    border-radius: 8px;
+}
+
+/* FAREYİ ÜZERİNE GETİRİNCE (HOVER) */
+.badge-skill-fill:hover {
+    color: #ffffff; /* Yazı rengi beyaza dönsün */
+}
+
+/* Hover olunca... */
+.badge-skill-fill:hover::before {
+    transform: translateX(0); /* ...::before elementi kayarak gelsin (doldursun) */
+}
+
+/* Hover olunca... */
+.badge-skill-fill:hover .skill-percent-text {
+    opacity: 1; /* ...yüzde yazısı görünsün */
+}
+
+/* 3. BÖLÜM: ALT BİLGİ (İLETİŞİM) - SİYAH STİL */
+footer {
+    background-color: #1a1a1a; /* Koyu (siyaha yakın) bir arka plan */
+    color: #b0b0b0; /* Yazı rengi (beyaza yakın gri) */
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px; /* İçerikle arasına biraz boşluk koyar */
+    border-top: 3px solid #3a7bd5; /* Üstüne mavi bir çizgi (tasarıma uysun diye) */
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Footer'daki linkleri (a) güzelleştirelim */
+footer a {
+    color: #ffffff; /* Linkler tam beyaz olsun, öne çıksın */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: bold;
+    padding: 0 5px; /* Linklere biraz hava aldırır */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Linklerin üzerine gelince altını çizsin (eski mavi renk) */
+footer a:hover {
+    color: #8ec5fc; /* Ana temadaki o açık mavi renk */
+    text-decoration: none;
+}

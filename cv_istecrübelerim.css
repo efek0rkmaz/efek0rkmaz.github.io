@@ -1,0 +1,106 @@
+/* Genel Sayfa Stili */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    
+    /* İsteğin buydu: Hem "soft" hem "canlı" bir arka plan.
+      Bu yumuşak renk geçişi (gradient) tam olarak bunu yapıyor.
+    */
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    
+    /* Arka planın sayfa kaysa bile sabit kalmasını sağlar */
+    background-attachment: fixed;
+}
+
+/* Üst Kısım (Link ve Ana Başlık) */
+header {
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+}
+
+header h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Ana Sayfa Link Düğmesi */
+.nav-link {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #5b86e5;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px; /* Yumuşak kenarlar */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Ana içerik (Tüm tecrübe kartlarını kapsar) */
+main {
+    max-width: 800px; /* Geniş ekranlarda çok yayılmasın */
+    margin: 0 auto;   /* Sayfanın ortasında dursun */
+    padding: 0 20px 40px 20px;
+}
+
+/* Her bir tecrübe bölümü için "kart" stili */
+.job-card {
+    background-color: #ffffff; /* Kartlar beyaz olsun (okunaklılık için) */
+    border-radius: 10px;      /* Kenarları "soft" olsun */
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+    transition: all 0.3s ease;
+}
+
+.job-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+/* Başlıklar */
+.job-card h2 {
+    color: #3a7bd5; /* Ana başlık rengi */
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+
+.job-card h3 {
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.job-card h4 {
+    color: #3a7bd5;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Tarih Paragrafı */
+.date {
+    font-style: italic;
+    color: #777;
+    margin-top: -10px;
+}
+
+/* Liste Stilleri */
+.job-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.job-card li {
+    margin-bottom: 8px;
+    color: #555;
+}
